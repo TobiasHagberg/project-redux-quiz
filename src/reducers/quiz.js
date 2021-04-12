@@ -2,14 +2,18 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // Change these to your own questions!
 const questions = [
-  { id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0 },
-  { id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 }
+  { id: 1, questionText: 'What is the name of the park where Stockholms famous cherrys blossom?', options: ['Berzelii Park', 'Tantolunden', 'Kungsträdgården', 'Humlegården'], correctAnswerIndex: 2 },
+  { id: 2, questionText: '?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 },
+  { id: 2, questionText: 'There is a landmark in the shape of a hole at Stockholms central station, what is its name in local tounge?', options: ['Spottkoppen', 'Ringen', 'Slukhålet'], correctAnswerIndex: 0 },
+  { id: 2, questionText: 'The mountain is Stokholm´s highest point, the bridge in the background is a clue. What is its name?', options: ['Skinnarviksberget', '2014', '2016', '2018'], correctAnswerIndex: 2 },
+  { id: 2, questionText: '?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 }
 ]
 
 const initialState = {
   questions,
   answers: [],
   currentQuestionIndex: 0,
+  quizBegin: false,
   quizOver: false
 }
 
@@ -33,9 +37,9 @@ export const quiz = createSlice({
      * When dispatching this action, you should pass an object as the payload with `questionId`
      * and `answerIndex` keys. See the readme for more details.
      */
-    submitAnswer: (state, action) => {
+    submitAnswer: (store, action) => {
       const { questionId, answerIndex } = action.payload
-      const question = state.questions.find((q) => q.id === questionId)
+      const question = store.questions.find((q) => q.id === questionId)
 
       if (!question) {
         throw new Error('Could not find question! Check to make sure you are passing the question id correctly.')
@@ -45,7 +49,7 @@ export const quiz = createSlice({
         throw new Error(`You passed answerIndex ${answerIndex}, but it is not in the possible answers array!`)
       }
 
-      state.answers.push({
+      store.answers.push({
         questionId,
         answerIndex,
         question,
@@ -61,12 +65,22 @@ export const quiz = createSlice({
      *
      * This action does not require a payload.
      */
-    goToNextQuestion: (state) => {
-      if (state.currentQuestionIndex + 1 === state.questions.length) {
-        state.quizOver = true
+    goToNextQuestion: (store) => {
+      if (store.currentQuestionIndex + 1 === store.questions.length) {
+        store.quizOver = true
       } else {
-        state.currentQuestionIndex += 1
+        store.currentQuestionIndex += 1
       }
+    },
+
+    goToPreviousQuestion: (store) => {
+      if (store.currentQuestionIndex + 1 === store.questions.length) {
+        store.currentQuestionIndex -= 1
+      }
+    },
+
+    startQuestion: (store) => {
+      store.quizBegin = true
     },
 
     /**
