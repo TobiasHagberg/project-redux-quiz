@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Button = () => {
+const Button = ({ btnTxt, onClickAction }) => {
   return (
     <button
       type="button"
       className="btn button"
-      onClick={() => onClickAction()}
+      onClick={onClickAction}
     >
       {btnTxt}
     </button>

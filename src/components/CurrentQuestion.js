@@ -1,7 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import Button from './Button'
+import ShowProgress from './ShowProgress'
+import RadioButton from './RadioButton'
+import QuizButtons from './QuizButtons'
 
 export const CurrentQuestion = () => {
   const question = useSelector((store) => store.quiz.questions[store.quiz.currentQuestionIndex])
@@ -12,8 +14,12 @@ export const CurrentQuestion = () => {
 
   return (
     <section>
+      <ShowProgress 
+        questionNumber={question.id}
+      />
       <h1>Question: {question.questionText}</h1>
-      <Button />
+      <RadioButton />
+      <QuizButtons />
     </section>
   )
 }

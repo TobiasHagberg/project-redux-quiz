@@ -19,22 +19,22 @@ const QuizButtons = () => {
       {quizBegin === false && (
         <Button
           btnTxt="Start"
-          onClickAction={() => handleButtonPress(quiz.actions.startQuestion())}
+          onClickAction={() => handleButtonPress(quiz.actions.startQuiz())}
         />
       )}
-      {quizBegin === true && currentQuestionIndex >= 1 && (
+      {currentQuestionIndex > 0 && quizOver === false && (
         <Button
           btnTxt="Previous"
           onClickAction={() => handleButtonPress(quiz.actions.goToPreviousQuestion())}
         />
       )}
-      {quizBegin === true && currentQuestionIndex <= 3 && (
+      {currentQuestionIndex < 4 && quizBegin === true && (
         <Button
           btnTxt="Next"
           onClickAction={() => handleButtonPress(quiz.actions.goToNextQuestion())}
         />
       )}
-      {quizOver === true && (
+      {currentQuestionIndex === 4 && quizOver === false && (
         <Button
           btnTxt="Finish"
           onClickAction={() => handleButtonPress(quiz.actions.goToNextQuestion())}

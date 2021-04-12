@@ -2,17 +2,18 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // Change these to your own questions!
 const questions = [
-  { id: 1, questionText: 'What is the name of the park where Stockholms famous cherrys blossom?', options: ['Berzelii Park', 'Tantolunden', 'Kungsträdgården', 'Humlegården'], correctAnswerIndex: 2 },
+  { id: 1, questionText: 'What is the name of the park where Stockholms famous cherry blossoms are located?', options: ['Berzelii Park', 'Tantolunden', 'Kungsträdgården', 'Humlegården'], correctAnswerIndex: 2 },
   { id: 2, questionText: '?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 },
-  { id: 2, questionText: 'There is a landmark in the shape of a hole at Stockholms central station, what is its name in local tounge?', options: ['Spottkoppen', 'Ringen', 'Slukhålet'], correctAnswerIndex: 0 },
-  { id: 2, questionText: 'The mountain is Stokholm´s highest point, the bridge in the background is a clue. What is its name?', options: ['Skinnarviksberget', '2014', '2016', '2018'], correctAnswerIndex: 2 },
-  { id: 2, questionText: '?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 }
+  { id: 3, questionText: 'There is a landmark in the shape of a hole at Stockholms central station, what is its name in local tounge?', options: ['Spottkoppen', 'Ringen', 'Slukhålet'], correctAnswerIndex: 0 },
+  { id: 4, questionText: 'The mountain is Stokholm´s highest point, the bridge in the background is a clue. What is its name?', options: ['Skinnarviksberget', '2014', '2016', '2018'], correctAnswerIndex: 2 },
+  { id: 5, questionText: 'Blamfkasdnfjansf?', options: ['2011', '2013', '2017', '2019'], correctAnswerIndex: 2 }
 ]
 
 const initialState = {
   questions,
   answers: [],
   currentQuestionIndex: 0,
+  score: 0,
   quizBegin: false,
   quizOver: false
 }
@@ -49,6 +50,10 @@ export const quiz = createSlice({
         throw new Error(`You passed answerIndex ${answerIndex}, but it is not in the possible answers array!`)
       }
 
+      if (answerIndex === question.correctAnswerIndex) {
+        store.score += 1
+      }
+
       store.answers.push({
         questionId,
         answerIndex,
@@ -74,12 +79,10 @@ export const quiz = createSlice({
     },
 
     goToPreviousQuestion: (store) => {
-      if (store.currentQuestionIndex + 1 === store.questions.length) {
-        store.currentQuestionIndex -= 1
-      }
+      store.currentQuestionIndex -= 1
     },
 
-    startQuestion: (store) => {
+    startQuiz: (store) => {
       store.quizBegin = true
     },
 
