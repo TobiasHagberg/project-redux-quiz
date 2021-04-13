@@ -17,13 +17,6 @@ code {
     monospace;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: rgb(190, 150, 190);
-}
 
 /* HEADING */
 .header {
@@ -33,6 +26,16 @@ code {
 .header-heading {
   color: black;
   font-family: Special Gill;
+  font-size: 42px;
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(190, 150, 190);
 }
 
 /* BUTTON */
@@ -42,16 +45,16 @@ code {
 
 .start-btn {
   position: absolute;
-  top: 48rem;
-  left: 66rem;
+  top: 52rem;
+  left: 96rem;
   border: solid 2px purple;
   background-color: transparent;
   padding: 10px 20px;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 700;
   outline: none;
-  color: inherit;
+  color: purple;
   border-radius: 7px;
   cursor: pointer;
   transition: all 0.2s ease-out;
@@ -59,15 +62,15 @@ code {
 }
 
 .btn {
-  border: solid 2px purple;
-  background-color: transparent;
+  border: solid 1px white;
+  background-color: #a355a3;
   padding: 10px 20px;
   font-family: inherit;
   font-size: 16px;
   font-weight: 700;
   outline: none;
-  color: inherit;
-  border-radius: 7px;
+  color: black;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.2s ease-out;
   margin: 10px 5px 0px 5px;
@@ -79,7 +82,6 @@ code {
 }
 
 /* LANDING PAGE*/
-
 .landing-image {
   width: 100%;
   position: absolute;
@@ -88,12 +90,22 @@ code {
 .background {
   display: flex;
   justify-content: center;
+  position: absolute;
+  background-image: url(/assets/city-hall-view.jpeg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
 }
 
 .main-heading {
   position: absolute;
   top: 2.5rem;
-  left: 23.5rem;
+  left: 29.5rem;
   font-family: Special Gill;
   font-size: 38px;
   width: 189px;
@@ -109,8 +121,27 @@ code {
 }
 
 /* CURRENT QUESTION */
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-h1 {
+.form h3 {
+  font-family: Special Gill;
+  font-size: 32px;
+}
+
+.question-heading {
+  margin: 0px 0px 15px 0px;
+}
+
+.question-text {
+  margin: 0px 0px 30px 0px;
+}
+
+.show-progress-text {
+  font-size: 20px;
   font-family: Special Gill;
 }
 
@@ -118,12 +149,6 @@ h1 {
   display: flex;
   background-color: rgb(126, 69, 126);
   height: 100vh;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 
 .radio-div {
@@ -151,8 +176,19 @@ h1 {
 
 }
 
+input {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
 label {
   font-family: Special Gill;
+  font-size: 24px;
+  line-height: 60px;
+  border: 1px solid white;
+  margin-bottom: 10px;
+  background: #a355a3;
+  border-radius: 5px;
 }
 
 
@@ -162,7 +198,12 @@ label {
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+}
+
+.summary-image {
+  width: 50%;
+  object-fit: cover;
 }
 
 .summary-section-div {
@@ -170,22 +211,34 @@ label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 50px;
 }
 
 .summary-section-div .buttons-container {
   margin-top: 0;
 }
 
-.detailed-summary-item  {
-  font-size:  
+.detailed-summary-item {
+  font-family: Special Gill; 
+}
+
+.detailed-summary-heading {
+  font-size: 22px;
+  margin: 20px 0px 10px 0px;
+}
+
+.detailed-summary-item p {
+  margin: 0;
+  font-size: 18px;
+  margin: 0px 0px 10px 0px;
 }
 
 .green {
-  color: green;
+  color: rgb(18, 124, 18);
 }
 
 .red {
-  color: red;
+  color: rgb(207, 29, 29);
 }
 
 .bold {

@@ -1,14 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 const DetailedSummary = () => {
-  const answers = useSelector((store) => store.quiz.answers);
+  const answers = useSelector((store) => store.quiz.answers)
 
   return (
     <div className="detailed-summary">
       {answers.map((a) => (
         <div className="detailed-summary-item">
-          <h3>{a.question.questionText}</h3>
+          <h3 className="detailed-summary-heading">{a.question.questionText}</h3>
 
           {a.isCorrect ? (
             <p className="green"><span className="bold">{a.answer}</span> is correct</p>
@@ -23,6 +23,6 @@ const DetailedSummary = () => {
         </div>
       ))}
     </div>
-  );
-};
-export default DetailedSummary;
+  )
+}
+export default DetailedSummary

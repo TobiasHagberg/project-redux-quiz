@@ -1,53 +1,52 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
-// Change these to your own questions!
 const questions = [
   {
     id: 1,
     questionText:
-      "What is the name of the park with Stockholms famous cherry blossom trees?",
-    options: ["Berzelii Park", "Tantolunden", "Kungsträdgården", "Humlegården"],
+      'What is the name of the park with Stockholms famous cherry blossom trees?',
+    options: ['Berzelii Park', 'Tantolunden', 'Kungsträdgården', 'Humlegården'],
     correctAnswerIndex: 2,
-    image: "./assets/cherry_blossom.jpg",
+    image: './assets/cherry_blossom.jpg'
   },
   {
     id: 2,
     questionText:
-      "Gröna Lund once had so many guest during a concert that some of the audience actually entered the amusement park from the water by swimming. What was the name of the band that caused this chaos?",
-    options: ["Bob Marley & The Wailers", "Marcus & Martinus", "Tenacious D", "Wu-Tang Clan"],
+      'Gröna Lund once had so many guest during a concert that some of the audience actually entered the amusement park from the water by swimming. What was the name of the band that caused this chaos?',
+    options: ['Bob Marley & The Wailers', 'Marcus & Martinus', 'Tenacious D', 'Wu-Tang Clan'],
     correctAnswerIndex: 2,
-    image: "./assets/Carousel-Yanan_Li.jpg",
+    image: './assets/Carousel-Yanan_Li.jpg'
   },
   {
     id: 3,
     questionText:
-      "There is a landmark in the shape of a hole at Stockholms central station, what is its name in local tounge?",
-    options: ["Spottkoppen", "Ringen", "Slukhålet", "Askkoppen"],
+      'There is a landmark in the shape of a hole at Stockholms central station, what is its name in local tounge?',
+    options: ['Spottkoppen', 'Ringen', 'Slukhålet', 'Askkoppen'],
     correctAnswerIndex: 0,
-    image: "./assets/Centralen_hall.jpg",
+    image: './assets/Centralen_hall.jpg'
   },
   {
     id: 4,
     questionText:
-      "The mountain is Stockholm´s highest point, the background is a clue. What is its name?",
+      'The mountain is Stockholm´s highest point, the background is a clue. What is its name?',
     options: [
-      "Skinnarviksberget",
-      "Vikingaberget",
-      "Stora Lappkärrsberget",
-      "Vita Bergen",
+      'Skinnarviksberget',
+      'Vikingaberget',
+      'Stora Lappkärrsberget',
+      'Vita Bergen'
     ],
     correctAnswerIndex: 0,
-    image: "./assets/Berget.jpg",
+    image: './assets/Berget.jpg'
   },
   {
     id: 5,
     questionText:
-      "Marie and Poya had a spontaneous lunch, what is the name of the closest public gathering point?",
-    options: ["Mariatorget", "Medborgarplatsen", "Skrapan", "Bysistorget"],
+      'Marie and Poya had a spontaneous lunch, what is the name of the closest public gathering point?',
+    options: ['Mariatorget', 'Medborgarplatsen', 'Skrapan', 'Bysistorget'],
     correctAnswerIndex: 1,
-    image: "./assets/Marie_Poya.jpg",
-  },
-];
+    image: './assets/Marie_Poya.jpg'
+  }
+]
 
 const initialState = {
   questions,
@@ -56,11 +55,11 @@ const initialState = {
   score: 0,
   quizBegin: false,
   quizOver: false,
-  showDetails: false,
-};
+  showDetails: false
+}
 
 export const quiz = createSlice({
-  name: "quiz",
+  name: 'quiz',
   initialState,
   reducers: {
     /**
@@ -79,23 +78,23 @@ export const quiz = createSlice({
      * and `answerIndex` keys. See the readme for more details.
      */
     submitAnswer: (store, action) => {
-      const { questionId, answerIndex } = action.payload;
-      const question = store.questions.find((q) => q.id === questionId);
+      const { questionId, answerIndex } = action.payload
+      const question = store.questions.find((q) => q.id === questionId)
 
       if (!question) {
         throw new Error(
-          "Could not find question! Check to make sure you are passing the question id correctly."
-        );
+          'Could not find question! Check to make sure you are passing the question id correctly.'
+        )
       }
 
       if (question.options[answerIndex] === undefined) {
         throw new Error(
           `You passed answerIndex ${answerIndex}, but it is not in the possible answers array!`
-        );
+        )
       }
 
       if (answerIndex === question.correctAnswerIndex) {
-        store.score += 1;
+        store.score += 1
       }
 
       store.answers.push({
@@ -103,8 +102,8 @@ export const quiz = createSlice({
         answerIndex,
         question,
         answer: question.options[answerIndex],
-        isCorrect: question.correctAnswerIndex === answerIndex,
-      });
+        isCorrect: question.correctAnswerIndex === answerIndex
+      })
     },
 
     /**
@@ -116,18 +115,18 @@ export const quiz = createSlice({
      */
     goToNextQuestion: (store) => {
       if (store.currentQuestionIndex + 1 === store.questions.length) {
-        store.quizOver = true;
+        store.quizOver = true
       } else {
-        store.currentQuestionIndex += 1;
+        store.currentQuestionIndex += 1
       }
     },
 
     goToPreviousQuestion: (store) => {
-      store.currentQuestionIndex -= 1;
+      store.currentQuestionIndex -= 1
     },
 
     startQuiz: (store) => {
-      store.quizBegin = true;
+      store.quizBegin = true
     },
 
     /**
@@ -138,11 +137,11 @@ export const quiz = createSlice({
      * This action does not require a payload.
      */
     showDetailedSummary: (store) => {
-      store.showDetails = true;
+      store.showDetails = true
     },
 
     restart: () => {
-      return initialState;
-    },
-  },
-});
+      return initialState
+    }
+  }
+})

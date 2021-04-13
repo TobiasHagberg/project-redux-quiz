@@ -6,7 +6,7 @@ import { quiz } from 'reducers/quiz'
 const RadioButton = () => {
   const dispatch = useDispatch()
   const question = useSelector((store) => store.quiz.questions[store.quiz.currentQuestionIndex])
-  /*const answeredIndex = useSelector((store) => store.quiz.answers[store.quiz.currentQuestionIndex])*/
+  //const answeredIndex = useSelector((store) => store.quiz.answers[store.quiz.currentQuestionIndex])
 
   const handleAnswerChange = (props) => {
     dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: props }))
@@ -16,9 +16,8 @@ const RadioButton = () => {
     <div className="radio-div">
       {question.options.map((item, index) => (
         // <div className="radio-btn">
-          <label htmlFor={item}>
+          <label htmlFor={item} key={item}>
             <input
-              key={item}
               id={item}
               name={question.id}
               type="radio"

@@ -2,7 +2,7 @@ import React from 'react'
 
 const ShowProgress = ({ questionNumber }) => {
   return (
-    <p>{questionNumber} / 5</p>
+    <p className="show-progress-text">{questionNumber} / 5</p>
   )
 }
 
