@@ -4,10 +4,10 @@ const questions = [
   {
     id: 1,
     questionText:
-      'What is the name of the park with Stockholms famous cherry blossom trees?',
-    options: ['Berzelii Park', 'Tantolunden', 'Kungsträdgården', 'Humlegården'],
+      'Vem har oberoende av ålder firat flest nyår i team tigers?',
+    options: ['Ida', 'Isabella', 'Tobias', 'Sandra'],
     correctAnswerIndex: 2,
-    image: './assets/cherry_blossom.jpg'
+    image: './assets/new-year.jpg'
   },
   {
     id: 2,
@@ -28,21 +28,21 @@ const questions = [
   {
     id: 4,
     questionText:
-      'The mountain is Stockholm´s highest point, the background is a clue. What is its name?',
+      'Chalmers är en erkänt lärosäte i Sverige, hur många elever har passerat Tobias bakom katedern?',
     options: [
-      'Skinnarviksberget',
-      'Vikingaberget',
-      'Stora Lappkärrsberget',
-      'Vita Bergen'
+      'Noll',
+      'Fler än hundra',
+      '176 st',
+      'Fler än 300'
     ],
-    correctAnswerIndex: 0,
-    image: './assets/Berget.jpg'
+    correctAnswerIndex: 3,
+    image: './assets/chalm-nollk.jpg'
   },
   {
     id: 5,
     questionText:
-      'Marie and Poya had a spontaneous lunch, what is the name of the closest public gathering point?',
-    options: ['Mariatorget', 'Medborgarplatsen', 'Skrapan', 'Bysistorget'],
+      'Höga kusten och team tigers, vilken är kopplingen?',
+    options: ['Adventure racing', 'Peter Forsberg', 'Henrik & Daniel Sedin', 'Slottsdalsskrevan, Ronja'],
     correctAnswerIndex: 1,
     image: './assets/Marie_Poya.jpg'
   }
