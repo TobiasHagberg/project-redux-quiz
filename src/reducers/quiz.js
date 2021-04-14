@@ -12,10 +12,10 @@ const questions = [
   {
     id: 2,
     questionText:
-      'Gröna Lund once had so many guest during a concert that some of the audience actually entered the amusement park from the water by swimming. What was the name of the band that caused this chaos?',
-    options: ['Bob Marley & The Wailers', 'Marcus & Martinus', 'Tenacious D', 'Wu-Tang Clan'],
-    correctAnswerIndex: 2,
-    image: './assets/Carousel-Yanan_Li.jpg'
+      'Vad är Isabellas favoritgodis?',
+    options: ['Saltlakrits', 'Hallonbåt', 'Zoo', 'Center'],
+    correctAnswerIndex: 0,
+    image: './assets/lollipop.jpg'
   },
   {
     id: 3,
@@ -45,6 +45,97 @@ const questions = [
     options: ['Adventure racing', 'Peter Forsberg', 'Henrik & Daniel Sedin', 'Slottsdalsskrevan, Ronja'],
     correctAnswerIndex: 1,
     image: './assets/Marie_Poya.jpg'
+  },
+  {
+    id: 6,
+    questionText:
+      'Chalmers är en erkänt lärosäte i Sverige, hur många elever har passerat Tobias bakom katedern?',
+    options: [
+      'Noll',
+      'Fler än hundra',
+      '176 st',
+      'Fler än 300'
+    ],
+    correctAnswerIndex: 3,
+    image: './assets/chalm-nollk.jpg'
+  },
+  {
+    id: 7,
+    questionText:
+      'Chalmers är en erkänt lärosäte i Sverige, hur många elever har passerat Tobias bakom katedern?',
+    options: [
+      'Noll',
+      'Fler än hundra',
+      '176 st',
+      'Fler än 300'
+    ],
+    correctAnswerIndex: 3,
+    image: './assets/chalm-nollk.jpg'
+  },
+  {
+    id: 8,
+    questionText:
+      'Chalmers är en erkänt lärosäte i Sverige, hur många elever har passerat Tobias bakom katedern?',
+    options: [
+      'Noll',
+      'Fler än hundra',
+      '176 st',
+      'Fler än 300'
+    ],
+    correctAnswerIndex: 3,
+    image: './assets/chalm-nollk.jpg'
+  },
+  {
+    id: 9,
+    questionText:
+      'Vilket är Isabellas spirit animal?',
+    options: [
+      'Apa',
+      'Sengångare',
+      'Katt',
+      'Hund'
+    ],
+    correctAnswerIndex: 2,
+    image: './assets/bird.jpg'
+  },
+  {
+    id: 10,
+    questionText:
+      'Chalmers är en erkänt lärosäte i Sverige, hur många elever har passerat Tobias bakom katedern?',
+    options: [
+      'Noll',
+      'Fler än hundra',
+      '176 st',
+      'Fler än 300'
+    ],
+    correctAnswerIndex: 3,
+    image: './assets/chalm-nollk.jpg'
+  },
+  {
+    id: 11,
+    questionText:
+      'Chalmers är en erkänt lärosäte i Sverige, hur många elever har passerat Tobias bakom katedern?',
+    options: [
+      'Noll',
+      'Fler än hundra',
+      '176 st',
+      'Fler än 300'
+    ],
+    correctAnswerIndex: 3,
+    image: './assets/chalm-nollk.jpg'
+  },
+  {
+    id: 12,
+    questionText:
+      'Vilken musikgenre lyssnar Isabella mestadels på?',
+    options: [
+      'Pop',
+      'Metal core',
+      'EDM',
+      'RnB'
+    ],
+    correctAnswerIndex: 3,
+    image: './assets/guitar.jpg'
   }
 ]
 
